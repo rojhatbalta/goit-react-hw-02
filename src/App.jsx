@@ -7,7 +7,7 @@ import Notification from "./components/Notification";
 function App() {
   const [feedback, setFeedback] = useState(() => {
     const localFeedback = JSON.parse(localStorage.getItem("feedback"));
-    return localFeedback || { good: 0, neutural: 0, bad: 0 };
+    return localFeedback || { good: 0, neutral: 0, bad: 0 };
   });
 
   useEffect(() => {
@@ -27,6 +27,8 @@ function App() {
 
   const totalFeedback = feedback.neutral + feedback.good + feedback.bad;
 
+  const positiveValue = Math.round((feedback.good / totalFeedback) * 100);
+
   return (
     <>
       <Description />
@@ -38,7 +40,11 @@ function App() {
       {totalFeedback === 0 ? (
         <Notification />
       ) : (
-        <Feedback feedback={feedback} totalFeedback={totalFeedback} />
+        <Feedback
+          feedback={feedback}
+          totalFeedback={totalFeedback}
+          positiveValue={positiveValue}
+        />
       )}
     </>
   );

@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
 
-export default function Feedback({ feedback, totalFeedback }) {
-  const positiveValue = Math.round((feedback.good / totalFeedback) * 100);
-
+export default function Feedback({ feedback, totalFeedback, positiveValue }) {
   return (
     <div>
       <p>Good: {feedback.good} </p>
@@ -15,6 +13,7 @@ export default function Feedback({ feedback, totalFeedback }) {
 }
 
 Feedback.propTypes = {
-  feedback: PropTypes.number.isRequired,
+  feedback: PropTypes.object.isRequired,
   totalFeedback: PropTypes.number.isRequired,
+  positiveValue: PropTypes.number.isRequired,
 };
