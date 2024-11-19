@@ -15,6 +15,6 @@ export default function Feedback({ feedback, totalFeedback }) {
 }
 
 Feedback.propTypes = {
-  feedback: PropTypes.string.isRequired,
-  totalFeedback: PropTypes.string.isRequired,
+  feedback: PropTypes.number.isRequired,
+  totalFeedback: PropTypes.number.isRequired,
 };
